@@ -843,17 +843,17 @@ class Material:
         matched_materials = []
         for datum in MaterialsCompendium:
             if datum.Name == material_name:
-                return cls(datum)
+                return cls(datum), ""
             elif difflib.SequenceMatcher(None, material_name, datum.Name).ratio() > 0.6:
                 # Consider a match if the similarity ratio is greater than 0.6 (adjust the threshold as needed)
                 matched_materials.append(datum.Name)
 
         if matched_materials:
             suggestions = "\n".join(matched_materials)
-            print(f"Material '{material_name}' not found. Did you mean:\n{suggestions}")
+            message = f"Material '{material_name}' not found. Did you mean:\n{suggestions}"
         else:
-            print(f"Material '{material_name}' not found in the data.")
-        return None
+            message = f"Material '{material_name}' not found in the data."
+        return None, message
 
     @classmethod
     def from_formula(cls, material_formula):

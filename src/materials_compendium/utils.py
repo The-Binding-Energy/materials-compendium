@@ -850,9 +850,9 @@ class Material:
 
         if matched_materials:
             suggestions = "\n".join(matched_materials)
-            message = f"Material '{material_name}' not found. Did you mean:\n{suggestions}"
+            message = f"Material '{material_name}' not found. Did you mean:\n{suggestions}. Otherwise, please check the online reference 'https://mcnp.lanl.gov/pdf_files/TechReport_2021_PNNL_PNNL-15870Rev.2_DetwilerMcConnEtAl.pdf'"
         else:
-            message = f"Material '{material_name}' not found in the data."
+            message = fr"Material '{material_name}' not found in the data. Please check the online reference 'https://mcnp.lanl.gov/pdf_files/TechReport_2021_PNNL_PNNL-15870Rev.2_DetwilerMcConnEtAl.pdf'"
         return None, message
 
     @classmethod
